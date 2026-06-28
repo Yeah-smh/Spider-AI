@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <!-- 第一条丝带渐变：薄荷绿到淡青 -->
+    <linearGradient id="ribbon1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A8E6CF" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#88D8C0" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#7DD3FC" stop-opacity="0.8"/>
+    </linearGradient>
+    
+    <!-- 第二条丝带渐变：淡紫到薄荷绿 -->
+    <linearGradient id="ribbon2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DDD6FE" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#C4B5FD" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#A8E6CF" stop-opacity="0.7"/>
+    </linearGradient>
+    
+    <!-- 第三条丝带渐变：淡青到淡紫 -->
+    <linearGradient id="ribbon3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7DD3FC" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#BAE6FD" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#E9D5FF" stop-opacity="0.6"/>
+    </linearGradient>
+    
+    <!-- 柔和光晕滤镜 -->
+    <filter id="auroraGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+    </filter>
+    
+    <filter id="softEdge" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.8"/>
+    </filter>
+  </defs>
+  
+  <!-- 光晕背景层 -->
+  <g filter="url(#auroraGlow)" opacity="0.6">
+    <path d="M24 72 Q44 32, 64 48 Q84 64, 104 44" fill="none" stroke="url(#ribbon1)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M28 56 Q48 88, 68 68 Q88 48, 108 72" fill="none" stroke="url(#ribbon2)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M20 64 Q50 44, 64 64 Q78 84, 108 58" fill="none" stroke="url(#ribbon3)" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  
+  <!-- 主丝带层 -->
+  <g filter="url(#softEdge)">
+    <!-- 丝带1：优雅S曲线 -->
+    <path d="M24 72 Q44 32, 64 48 Q84 64, 104 44" fill="none" stroke="url(#ribbon1)" stroke-width="6" stroke-linecap="round"/>
+    
+    <!-- 丝带2：交织曲线 -->
+    <path d="M28 56 Q48 88, 68 68 Q88 48, 108 72" fill="none" stroke="url(#ribbon2)" stroke-width="5" stroke-linecap="round"/>
+    
+    <!-- 丝带3：轻柔波浪 -->
+    <path d="M20 64 Q50 44, 64 64 Q78 84, 108 58" fill="none" stroke="url(#ribbon3)" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <!-- 交汇点高光 -->
+  <circle cx="64" cy="60" r="4" fill="#FFFFFF" fill-opacity="0.5"/>
+</svg>

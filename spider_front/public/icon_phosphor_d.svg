@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <!-- 中心主光点渐变（柔粉） -->
+    <radialGradient id="centerStar" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#FECDD3" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#FDA4AF" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#F9A8D4" stop-opacity="0.7"/>
+    </radialGradient>
+    
+    <!-- 薄荷绿光点渐变 -->
+    <radialGradient id="mintStar" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#A8E6CF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#88D8C0" stop-opacity="0.7"/>
+    </radialGradient>
+    
+    <!-- 淡青光点渐变 -->
+    <radialGradient id="cyanStar" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#BAE6FD" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7DD3FC" stop-opacity="0.7"/>
+    </radialGradient>
+    
+    <!-- 淡紫光点渐变 -->
+    <radialGradient id="lavenderStar" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#E9D5FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#DDD6FE" stop-opacity="0.7"/>
+    </radialGradient>
+    
+    <!-- 连接线渐变 -->
+    <linearGradient id="connectionLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FECDD3" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#A8E6CF" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#BAE6FD" stop-opacity="0.35"/>
+    </linearGradient>
+    
+    <!-- 光晕滤镜 -->
+    <filter id="starGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
+    
+    <filter id="lineGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
+    </filter>
+  </defs>
+  
+  <!-- 连接线光晕层 -->
+  <g filter="url(#lineGlow)" opacity="0.7">
+    <line x1="64" y1="58" x2="42" y2="38" stroke="url(#connectionLine)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="64" y1="58" x2="92" y2="42" stroke="url(#connectionLine)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="64" y1="58" x2="38" y2="78" stroke="url(#connectionLine)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="64" y1="58" x2="88" y2="82" stroke="url(#connectionLine)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="64" y1="58" x2="64" y2="94" stroke="url(#connectionLine)" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- 连接线主层 -->
+  <g opacity="0.6">
+    <line x1="64" y1="58" x2="42" y2="38" stroke="url(#connectionLine)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="64" y1="58" x2="92" y2="42" stroke="url(#connectionLine)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="64" y1="58" x2="38" y2="78" stroke="url(#connectionLine)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="64" y1="58" x2="88" y2="82" stroke="url(#connectionLine)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="64" y1="58" x2="64" y2="94" stroke="url(#connectionLine)" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  
+  <!-- 光点光晕层 -->
+  <g filter="url(#starGlow)">
+    <circle cx="64" cy="58" r="12" fill="url(#centerStar)"/>
+    <circle cx="42" cy="38" r="7" fill="url(#mintStar)"/>
+    <circle cx="92" cy="42" r="6" fill="url(#cyanStar)"/>
+    <circle cx="38" cy="78" r="5" fill="url(#lavenderStar)"/>
+    <circle cx="88" cy="82" r="6" fill="url(#mintStar)"/>
+    <circle cx="64" cy="94" r="5" fill="url(#cyanStar)"/>
+  </g>
+  
+  <!-- 光点主层 -->
+  <circle cx="64" cy="58" r="10" fill="url(#centerStar)"/>
+  <circle cx="42" cy="38" r="6" fill="url(#mintStar)"/>
+  <circle cx="92" cy="42" r="5" fill="url(#cyanStar)"/>
+  <circle cx="38" cy="78" r="4" fill="url(#lavenderStar)"/>
+  <circle cx="88" cy="82" r="5" fill="url(#mintStar)"/>
+  <circle cx="64" cy="94" r="4" fill="url(#cyanStar)"/>
+  
+  <!-- 中心高光 -->
+  <circle cx="61" cy="55" r="3" fill="#FFFFFF" fill-opacity="0.8"/>
+</svg>

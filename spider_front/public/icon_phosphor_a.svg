@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <!-- 柔光球体的径向渐变 -->
+    <radialGradient id="sphereGradient" cx="50%" cy="45%" r="50%" fx="40%" fy="35%">
+      <stop offset="0%" stop-color="#E8FFF8" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#A8E6CF" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#88D8C0" stop-opacity="0.85"/>
+      <stop offset="85%" stop-color="#7DD3C0" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#6BCFB8" stop-opacity="0.5"/>
+    </radialGradient>
+    
+    <!-- 外围光晕渐变 -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A8E6CF" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#88D8C0" stop-opacity="0.2"/>
+      <stop offset="80%" stop-color="#B8F0E0" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#B8F0E0" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- 高光点渐变 -->
+    <radialGradient id="highlightGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- 柔和模糊滤镜 -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
+    
+    <filter id="outerGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+    </filter>
+  </defs>
+  
+  <!-- 最外层光晕 -->
+  <circle cx="64" cy="64" r="52" fill="url(#glowGradient)" filter="url(#outerGlow)"/>
+  
+  <!-- 中层光晕 -->
+  <circle cx="64" cy="64" r="42" fill="url(#glowGradient)" filter="url(#softGlow)"/>
+  
+  <!-- 主球体 -->
+  <circle cx="64" cy="64" r="32" fill="url(#sphereGradient)"/>
+  
+  <!-- 高光点 -->
+  <ellipse cx="52" cy="52" rx="8" ry="6" fill="url(#highlightGradient)"/>
+</svg>

@@ -1,0 +1,18 @@
+[project]
+name = "spiderbase"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.115.0",
+    "pydantic-settings>=2.0",
+    "sqlmodel>=0.0.22",
+    "psycopg2-binary>=2.9",
+    "pyjwt>=2.8",
+    "passlib[bcrypt]>=1.7",
+    "bcrypt==4.3.0",
+    "langchain-openai>=0.1",
+    "deepagents>=0.1",
+    "uvicorn>=0.30",
+]

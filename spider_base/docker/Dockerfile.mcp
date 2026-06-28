@@ -1,0 +1,27 @@
+FROM node:20-slim
+
+# 切换 Debian 源为阿里云镜像
+RUN sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources 2>/dev/null || \
+    sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list 2>/dev/null || true
+
+# 安装 Python 和 uvx
+RUN apt-get update && apt-get install -y python3 python3-pip python3-venv curl && \
+    pip3 install --break-system-packages -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com uv && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# 设置 npm 使用国内镜像
+RUN npm config set registry https://registry.npmmirror.com
+
+# 预装常用 MCP Server npm 包（加速首次启动）
+RUN npx -y @modelcontextprotocol/server-github --help || true && \
+    npx -y @modelcontextprotocol/server-filesystem --help || true && \
+    npx -y @modelcontextprotocol/server-memory --help || true && \
+    npx -y @modelcontextprotocol/server-sequential-thinking --help || true
+
+# 预装 Python MCP Server（通过 uvx 预热缓存）
+RUN uvx mcp-server-fetch --help || true
+
+WORKDIR /workspace
+
+# 保持容器运行（后续通过 docker exec 执行命令）
+CMD ["tail", "-f", "/dev/null"]
